@@ -1,0 +1,70 @@
+﻿@using MVCLab04.Models
+@model List<news>
+@{
+    ViewBag.Title = "SelectAllNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section style{
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            .container img {
+                vertical-align: middle;
+                height:200px;
+            }
+
+            .container .content {
+                position: relative;
+                bottom: 0;
+                background: rgb(0, 0, 0); /* Fallback color */
+                background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+            }
+        .c {
+            color: #f1f1f1;
+            background-color:black;
+            border-radius:4px;
+        }
+        h2{
+            text-align:center;
+            background-color:red;
+        }
+    </style>
+    }
+<h2>All New News</h2>
+<div class="container">
+    @foreach (var item in Model)
+    {
+       
+        <img src="~/img/@item.photo"  style="width:100%"/>
+        <div class="content">
+            <label class="badge badge-primary">@item.date</label>
+            <label class="badge badge-dark"> @Html.DisplayFor(e => item.catogery.name)</label>
+            <h3>@item.title</h3>
+            <p>@item.pref..
+            @Html.ActionLink("More...","MoreInfo","News",new {id=item.id },new {@class="c" })</p>
+        </div>
+
+    }
+</div>
+<script>
+
+</script>
+
+
+

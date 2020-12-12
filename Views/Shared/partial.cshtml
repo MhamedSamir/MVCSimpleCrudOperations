@@ -1,0 +1,26 @@
+﻿@using MVCLab04.Models
+@model List<news>
+
+<table>
+    <tr>
+        <th>@Model[0].id</th>
+        <th>@Model[0].title</th>
+        <th>@Model[0].pref</th>
+        <th>@Model[0].desc</th>
+        <th>@Model[0].date</th>
+        <th>Catogery</th>
+        <th>News Editor</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.id</td>
+    <td>@item.title</td>
+    <td>@item.pref</td>
+    <td>@item.desc</td>
+    <td>@item.date</td>
+    <td>@item.catogery.name</td>
+    <td>@Html.DisplayFor(i=>item.user.name)</td>
+</tr>
+    }
+</table>

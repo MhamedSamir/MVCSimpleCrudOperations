@@ -1,0 +1,50 @@
+﻿@using MVCLab04.Models
+@model news
+@{
+    ViewBag.Title = "MoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section style {
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            .container img {
+                vertical-align: middle;
+            }
+
+            .container .content {
+                position: relative;
+                bottom: 0;
+                background: rgb(0, 0, 0); /* Fallback color */
+                background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+            }
+    </style>
+    }
+
+<div class="container">
+    <img src="~/img/@Model.photo"  style="width:100%">
+    <div class="content">
+        <label class="badge">@Model.catogery.name</label>
+        <h1>@Model.title</h1>
+        <p>@Model.desc</p>
+    </div>
+</div>
+   
+
+

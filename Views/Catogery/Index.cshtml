@@ -1,0 +1,33 @@
+﻿@model SelectList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Choose Catogery</h2>
+
+@Html.DropDownList("catogery", Model, new { @class = "dropdown offset-5" })
+
+@*<select name="catogery" class="dropdown offset-4" >
+        @foreach (var item in Model)
+        {
+            <option id="@item.Value">
+                @item.Text
+            </option>
+        }
+    </select>*@
+
+<div id="d1">
+
+</div>
+@section script{
+    <script>
+        $("#catogery").on("change", function () {
+            let id = $("#catogery").val();
+            $("#d1").load("/Catogery/selectNewsByCatogery/" + id);
+           
+        })
+    </script>
+
+}
+
